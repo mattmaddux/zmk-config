@@ -39,18 +39,18 @@
                         >;
                 };
 
-/*                 raise_layer { */
-/* // ----------------------------------------------------------------------------------------- */
-/* // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC | */
-/* // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   | */
-/* // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   | */
-/* //                    | GUI |     | SPC |   | ENT |     | ALT | */
-/*                         bindings = < */
-/*    &trans  &trans   &kp LGUI(N7)  &kp LGUI(N8)  &kp LGUI(N9)  &trans   &trans  &kp N7  &kp N8  &kp N9  &trans  &trans */
-/*    &trans  &trans   &kp LGUI(N4)  &kp LGUI(N5)  &kp LGUI(N6)  &trans   &trans  &kp N4  &kp N5  &kp N6  &trans  &trans */
-/*    &trans  &trans   &kp LGUI(N1)  &kp LGUI(N2)  &kp LGUI(N3)  &trans   &kp N0  &kp N1  &kp N2  &kp N3  &trans  &trans */
-/*                              &trans &trans   &trans        &trans    &trans    &trans */
-/*                         >; */
-/*                 }; */
+                raise_layer {
+// -----------------------------------------------------------------------------------------
+// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
+// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+//                    | GUI |     | SPC |   | ENT |     | ALT |
+                        bindings = <
+   &kp TILDE  &kp PRCNT  &kp AT     &kp EXCL   &kp AMPS   &kp PLUS       &kp LBRC  &kp LBKT  &kp RBKT  &kp RBRC   &kp PG_UP  &trans
+   &kp BSLH   &kp HASH   &kp GRAVE  &kp APOS   &kp DQT    &kp KP_MINUS   &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &kp PG_DN  &trans
+   &kp LSHFT  &kp CARET  &kp DLLR   &kp ASTRK  &kp UNDER  &kp EQUAL      &kp LT    &kp LPAR  &kp RPAR  &kp GT     &kp PIPE   &trans
+                                    &trans     &trans     &trans         &mo 3  &trans   &trans
+                        >;
+                };
         };
 };
