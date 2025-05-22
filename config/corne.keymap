@@ -75,7 +75,7 @@
    &kp TILDE  &kp PRCNT  &kp AT     &kp EXCL   &kp AMPS   &kp PLUS       &kp LBRC  &kp LBKT  &kp RBKT  &kp RBRC   &kp PG_UP  &trans
    &kp BSLH   &kp HASH   &kp GRAVE  &kp APOS   &kp DQT    &kp KP_MINUS   &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &kp PG_DN  &trans
    &kp LSHFT  &kp CARET  &kp DLLR   &kp ASTRK  &kp UNDER  &kp EQUAL      &kp LT    &kp LPAR  &kp RPAR  &kp GT     &kp PIPE   &trans
-                                    &trans     &trans     &trans         &mo 3  &trans   &trans
+                                    &trans     &trans     &trans         &mo 2  &trans   &trans
                         >;
                 };
 
