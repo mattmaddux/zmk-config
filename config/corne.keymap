@@ -66,20 +66,20 @@
                 char_layer {
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &kp TILDE  &kp PRCNT        &kp AT           &kp EXCL         &kp AMPS         &kp PLUS       &kp LBRC  &kp LBKT         &kp RBKT      &kp RBRC         &kp PG_UP         &trans
-   &kp BSLH   &hmr LSHFT HASH  &hmr LALT GRAVE  &hmr LGUI APOS   &hmr LCTRL DQT   &kp KP_MINUS   &kp LEFT  &hmr RCTRL DOWN  &hmr RGUI UP  &hmr RALT RIGHT  &hmr RSHFT PG_DN  &trans
-   &kp LSHFT  &kp CARET        &kp DLLR         &kp ASTRK        &kp UNDER        &kp EQUAL      &kp LT    &kp LPAR         &kp RPAR      &kp GT           &kp PIPE          &trans
-                                                &trans           &trans           &trans         &mt LA(F) LG(SPACE)     &trans           &trans
+   &kp TILDE  &kp PRCNT        &kp AT           &kp EXCL         &kp AMPS         &kp PLUS       &kp LBRC             &kp LBKT         &kp RBKT      &kp RBRC         &kp PG_UP         &trans
+   &kp BSLH   &hmr LSHFT HASH  &hmr LALT GRAVE  &hmr LGUI APOS   &hmr LCTRL DQT   &kp KP_MINUS   &kp LEFT             &hmr RCTRL DOWN  &hmr RGUI UP  &hmr RALT RIGHT  &hmr RSHFT PG_DN  &trans
+   &kp LSHFT  &kp CARET        &kp DLLR         &kp ASTRK        &kp UNDER        &kp EQUAL      &kp LT               &kp LPAR         &kp RPAR      &kp GT           &kp PIPE          &trans
+                                                &trans           &trans           &trans         &mt LA(F) LG(SPACE)  &trans           &trans
                         >;
                 };
 
                 numpad_layer {
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &to 3   &trans  &kp K_PREV  &kp K_PP  &kp K_NEXT  &kp K_VOL_UP     &kp LC(TAB)  &kp N7  &kp N8  &kp N9  &trans  &trans
-   &trans  &trans  &trans      &trans    &trans      &kp K_VOL_DN     &trans  &kp N4  &kp N5  &kp N6  &trans  &trans
-   &trans  &trans  &trans      &trans    &trans      &trans           &kp N0  &mt LC(N1) N1  &mt LC(N2) N2  &kp N3  &trans  &trans
-                               &trans    &trans      &trans           &trans  &trans  &trans
+   &to 3   &trans  &kp K_PREV  &kp K_PP  &kp K_NEXT  &kp K_VOL_UP     &kp LC(TAB)  &mt LC(N7) N7  &mt LC(N8) N8  &mt LC(N9) N9  &trans  &trans
+   &trans  &trans  &trans      &trans    &trans      &kp K_VOL_DN     &trans       &mt LC(N4) N4  &mt LC(N5) N5  &mt LC(N6) N6  &trans  &trans
+   &trans  &trans  &trans      &trans    &trans      &trans           &kp N0       &mt LC(N1) N1  &mt LC(N2) N2  &mt LC(N3) N3  &trans  &trans
+                               &trans    &trans      &trans           &trans       &trans  &trans
                         >;
                 };
                 gaming_layer {
