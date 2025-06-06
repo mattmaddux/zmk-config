@@ -56,10 +56,10 @@
                 default_layer {
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &kp ESC   &kp Q         &kp W        &kp E        &kp R        &kp T    &kp Y            &kp U         &kp I        &kp O         &kp P            &kp BSPC
-   &kp TAB   &hml LSHFT A  &hml LALT S  &hml LGUI D  &hml LCTRL F &kp G    &kp H            &hmr RCTRL J  &hmr RGUI K  &hmr RALT L   &hmr RSHFT SEMI  &kp ENTER
-   &kp LSHFT &kp Z         &kp X        &kp C        &kp V        &kp B    &kp N            &kp M         &kp COMMA    &kp DOT       &kp FSLH         &kp RSHIFT
-                                        &trans       &trans       &mo 1    &spshft 2 SPACE  &trans        &trans
+   &kp ESC   &kp Q         &kp W        &kp E        &kp R        &kp T        &kp Y            &kp U         &kp I        &kp O         &kp P            &kp BSPC
+   &kp TAB   &hml LSHFT A  &hml LALT S  &hml LGUI D  &hml LCTRL F &kp G        &kp H            &hmr RCTRL J  &hmr RGUI K  &hmr RALT L   &hmr RSHFT SEMI  &kp ENTER
+   &kp LSHFT &kp Z         &kp X        &kp C        &kp V        &kp B        &kp N            &kp M         &kp COMMA    &kp DOT       &kp FSLH         &kp RSHIFT
+                                        &trans       &trans       &lt 1 LA(F)  &spshft 2 SPACE  &trans        &trans
                         >;
                 };
 
@@ -69,7 +69,7 @@
    &kp TILDE  &kp PRCNT        &kp AT           &kp EXCL         &kp AMPS         &kp PLUS       &kp LBRC             &kp LBKT         &kp RBKT      &kp RBRC         &kp PG_UP         &trans
    &kp BSLH   &hmr LSHFT HASH  &hmr LALT GRAVE  &hmr LGUI APOS   &hmr LCTRL DQT   &kp KP_MINUS   &kp LEFT             &hmr RCTRL DOWN  &hmr RGUI UP  &hmr RALT RIGHT  &hmr RSHFT PG_DN  &trans
    &kp LSHFT  &kp CARET        &kp DLLR         &kp ASTRK        &kp UNDER        &kp EQUAL      &kp LT               &kp LPAR         &kp RPAR      &kp GT           &kp PIPE          &trans
-                                                &trans           &trans           &trans         &mt LA(F) LG(SPACE)  &trans           &trans
+                                                &trans           &trans           &trans         &kp LG(SPACE)  &trans           &trans
                         >;
                 };
 
