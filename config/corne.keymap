@@ -67,7 +67,7 @@
 // -----------------------------------------------------------------------------------------
                         bindings = <
    &kp TILDE  &kp PRCNT  &kp AT           &kp EXCL         &kp AMPS         &kp PLUS              &kp LBRC       &kp LBKT         &kp RBKT      &kp RBRC         &kp PG_UP   &trans
-   &kp BSLH   &kpHASH    &hmr LALT GRAVE  &hmr LGUI APOS   &hmr LCTRL DQT   &kp KP_MINUS          &kp LEFT       &hmr RCTRL DOWN  &hmr RGUI UP  &hmr RALT RIGHT  &kp PG_DN  &trans
+   &kp BSLH   &kp HASH    &hmr LALT GRAVE  &hmr LGUI APOS   &hmr LCTRL DQT   &kp KP_MINUS          &kp LEFT       &hmr RCTRL DOWN  &hmr RGUI UP  &hmr RALT RIGHT  &kp PG_DN  &trans
    &trans     &kp CARET  &kp DLLR         &kp ASTRK        &kp UNDER        &kp EQUAL             &kp LT         &kp LPAR         &kp RPAR      &kp GT           &kp PIPE    &trans
                                           &trans           &trans           &trans                &kp LG(SPACE)  &trans           &trans
                         >;
