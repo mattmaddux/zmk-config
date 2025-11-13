@@ -78,8 +78,8 @@
                 char_layer {
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &kp TILDE  &kp PRCNT        &kp AT            &kp EXCL         &kp AMPS         &kp PLUS              &kp LBRC       &kp LBKT         &kp RBKT      &kp RBRC          &kp PG_UP        &trans
-   &kp BSLH   &hml LALT HASH   &hml LCTRL GRAVE  &hml LGUI APOS   &hml LSHFT DQT   &kp KP_MINUS          &kp LEFT       &hmr RSHFT DOWN  &hmr RGUI UP  &hmr RCTRL RIGHT  &hmr RALT PG_DN  &trans
+   &kp TILDE  &kp PRCNT        &kp AT            &kp EXCL         &kp AMPS         &kp PLUS              &kp LBRC       &kp LBKT         &kp RBKT      &kp RBRC          &kp TILDE        &trans
+   &kp BSLH   &hml LALT HASH   &hml LCTRL GRAVE  &hml LGUI APOS   &hml LSHFT DQT   &kp KP_MINUS          &kp LEFT       &hmr RSHFT DOWN  &hmr RGUI UP  &hmr RCTRL RIGHT  &hmr RALT BSLH  &trans
    &trans     &kp CARET        &kp DLLR          &kp ASTRK        &kp UNDER        &kp EQUAL             &kp LT         &kp LPAR         &kp RPAR      &kp GT            &kp PIPE         &trans
                                                  &trans           &trans           &trans                &kp LG(SPACE)  &trans           &trans
                         >;
@@ -88,10 +88,10 @@
                 numpad_layer {
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &trans  &kp ESC  &kp K_PREV   &kp K_PP  &kp K_NEXT  &kp K_VOL_UP          &trans   &kp N7   &kp N8  &kp N9  &trans  &trans
-   &trans  &kp TAB  &trans       &trans    &trans      &kp K_VOL_DN          &trans   &kp N4   &kp N5  &kp N6  &trans  &trans
-   &trans  &trans        &trans       &trans    &trans      &trans          &kp N0   &kp N1   &kp N2  &kp N3  &trans  &trans
-                                      &trans    &trans      &mo 3           &trans   &trans   &trans
+   &trans  &kp ESC   &trans    &trans   &kp K_VOL_UP  &kp PG_UP       &trans   &kp N7   &kp N8  &kp N9  &kp BSPC   &trans
+   &trans  &kp TAB   &trans    &trans   &kp K_VOL_DN  &kp PG_DN       &trans   &kp N4   &kp N5  &kp N6  &kp ENTER  &trans
+   &trans  &trans    &trans    &trans   &trans        &trans          &kp N0   &kp N1   &kp N2  &kp N3  &trans     &trans
+                               &trans   &trans        &mo 3           &trans   &trans   &trans
                         >;
                 };
                 bluetooth_layer {
