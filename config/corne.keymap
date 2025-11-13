@@ -48,19 +48,6 @@
                 hold-trigger-key-positions = < KEYS_R THUMBS_R >;
                 hold-trigger-on-release;
             };
-            left_thumb_morph: left_thumb_morph {
-                compatible = "zmk,behavior-mod-morph";
-                #binding-cells = <0>;
-                bindings = <&mo 1>, <&kp BSPC>;
-                mods = <(MOD_RSFT)>;
-            };
-            right_thumb_morph: right_thumb_morph {
-                compatible = "zmk,behavior-mod-morph";
-                #binding-cells = <0>;
-                bindings = <&thmbshft 2 SPACE>, <&kp ENTER>;
-                mods = <(MOD_LSFT)>;
-            };
-
         };
         keymap {
                 compatible = "zmk,keymap";
@@ -68,19 +55,19 @@
                 default_layer {
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &kp ESC  &kp Q         &kp W          &kp E        &kp R         &kp T                 &kp Y               &kp U         &kp I        &kp O          &kp P            &kp BSPC
-   &kp TAB  &hml LALT A   &hml LCTRL S   &hml LGUI D  &hml LSHFT F  &kp G                 &kp H               &hmr RSHFT J  &hmr RGUI K  &hmr RCTRL L   &hmr RALT SEMI   &kp ENTER
-   &none    &kp Z         &kp X          &kp C        &kp V         &kp B                 &kp N               &kp M         &kp COMMA    &kp DOT        &kp FSLH         &none
-                                         &trans       &trans        &left_thumb_morph     &right_thumb_morph  &trans        &trans
+   &kp ESC  &kp Q         &kp W          &kp E        &kp R         &kp T       &kp Y               &kp U         &kp I        &kp O          &kp P            &kp BSPC
+   &kp TAB  &hml LALT A   &hml LCTRL S   &hml LGUI D  &hml LSHFT F  &kp G       &kp H               &hmr RSHFT J  &hmr RGUI K  &hmr RCTRL L   &hmr RALT SEMI   &kp ENTER
+   &none    &kp Z         &kp X          &kp C        &kp V         &kp B       &kp N               &kp M         &kp COMMA    &kp DOT        &kp FSLH         &none
+                                         &trans       &trans        &mo 1       &thmbshft 2 SPACE  &trans        &trans
                         >;
                 };
 
                 char_layer {
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &kp TILDE  &kp PRCNT        &kp AT            &kp EXCL         &kp AMPS         &kp PLUS              &kp LBRC       &kp LBKT         &kp RBKT      &kp RBRC          &kp TILDE        &trans
-   &kp BSLH   &hml LALT HASH   &hml LCTRL GRAVE  &hml LGUI APOS   &hml LSHFT DQT   &kp KP_MINUS          &kp LEFT       &hmr RSHFT DOWN  &hmr RGUI UP  &hmr RCTRL RIGHT  &hmr RALT BSLH  &trans
-   &trans     &kp CARET        &kp DLLR          &kp ASTRK        &kp UNDER        &kp EQUAL             &kp LT         &kp LPAR         &kp RPAR      &kp GT            &kp PIPE         &trans
+   &kp TILDE  &kp PRCNT        &kp AT            &kp EXCL         &kp AMPS         &kp PLUS              &kp LBRC       &kp LBKT         &kp RBKT      &kp RBRC          &kp PG_UP   &trans
+   &kp BSLH   &hml LALT HASH   &hml LCTRL GRAVE  &hml LGUI APOS   &hml LSHFT DQT   &kp KP_MINUS          &kp LEFT       &hmr RSHFT DOWN  &hmr RGUI UP  &hmr RCTRL RIGHT  &kp PG_DN   &trans
+   &trans     &kp CARET        &kp DLLR          &kp ASTRK        &kp UNDER        &kp EQUAL             &kp LT         &kp LPAR         &kp RPAR      &kp GT            &kp PIPE    &trans
                                                  &trans           &trans           &trans                &kp LG(SPACE)  &trans           &trans
                         >;
                 };
@@ -88,10 +75,10 @@
                 numpad_layer {
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &trans  &kp ESC   &trans    &trans   &kp K_VOL_UP  &kp PG_UP       &trans  &kp N7   &kp N8  &kp N9  &kp BSPC   &trans
-   &trans  &kp TAB   &trans    &trans   &kp K_VOL_DN  &kp PG_DN       &trans   &kp N4   &kp N5  &kp N6  &kp ENTER  &trans
-   &trans  &trans    &trans    &trans   &trans        &trans          &kp N0   &kp N1   &kp N2  &kp N3  &trans     &trans
-                               &trans   &trans        &mo 3           &trans   &trans   &trans
+   &trans  &kp ESC   &trans    &trans   &trans   &kp K_VOL_UP       &trans   &kp N7   &kp N8  &kp N9  &trans  &trans
+   &trans  &kp TAB   &trans    &trans   &trans   &kp K_VOL_DN       &trans   &kp N4   &kp N5  &kp N6  &trans  &trans
+   &trans  &trans    &trans    &trans   &trans   &trans             &kp N0   &kp N1   &kp N2  &kp N3  &trans  &trans
+                               &trans   &trans   &mo 3              &trans   &trans   &trans
                         >;
                 };
                 bluetooth_layer {
