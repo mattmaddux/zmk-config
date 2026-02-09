@@ -1,0 +1,120 @@
+version: "3"
+
+vars:
+  ZMK_IMAGE: zmkfirmware/zmk-dev-arm:stable
+  ZMK_VOLUME: zmk-workspace
+  BOARD: nice_nano
+  SHIELDS: corne_left corne_right
+  CONFIG_DIR: "{{.ROOT_DIR}}/config"
+  OUTPUT_DIR: "{{.ROOT_DIR}}/firmware"
+
+tasks:
+  init:
+    desc: Initialize ZMK workspace (west init + update). Run once or after ZMK updates.
+    cmds:
+      - docker volume create {{.ZMK_VOLUME}}
+      - >-
+        docker run --rm
+        -v {{.ZMK_VOLUME}}:/workspaces/zmk
+        -w /workspaces/zmk
+        {{.ZMK_IMAGE}}
+        bash -c "
+          if [ ! -f .west/config ]; then
+            git clone https://github.com/zmkfirmware/zmk.git /tmp/zmk &&
+            cp -a /tmp/zmk/. /workspaces/zmk/ &&
+            west init -l app/ &&
+            west update;
+          else
+            west update;
+          fi
+        "
+
+  build:
+    desc: Build firmware for both halves. Output goes to ./firmware/
+    deps: [ensure-init]
+    cmds:
+      - mkdir -p {{.OUTPUT_DIR}}
+      - for:
+          var: SHIELDS
+          split: " "
+        cmd: >-
+          docker run --rm
+          -v {{.ZMK_VOLUME}}:/workspaces/zmk
+          -v {{.CONFIG_DIR}}:/workspaces/zmk-config/config:ro
+          -w /workspaces/zmk
+          {{.ZMK_IMAGE}}
+          bash -c "
+            west build -s app -d build/{{.ITEM}} -b {{.BOARD}} -p -- -DSHIELD={{.ITEM}} -DZMK_CONFIG=/workspaces/zmk-config/config &&
+            cat build/{{.ITEM}}/zephyr/zmk.uf2
+          " > {{.OUTPUT_DIR}}/{{.ITEM}}.uf2
+    sources:
+      - config/**/*
+    generates:
+      - firmware/*.uf2
+
+  build:left:
+    desc: Build firmware for left half only
+    deps: [ensure-init]
+    cmds:
+      - mkdir -p {{.OUTPUT_DIR}}
+      - >-
+        docker run --rm
+        -v {{.ZMK_VOLUME}}:/workspaces/zmk
+        -v {{.CONFIG_DIR}}:/workspaces/zmk-config/config:ro
+        -w /workspaces/zmk
+        {{.ZMK_IMAGE}}
+        bash -c "
+          west build -s app -d build/corne_left -b {{.BOARD}} -p -- -DSHIELD=corne_left -DZMK_CONFIG=/workspaces/zmk-config/config &&
+          cat build/corne_left/zephyr/zmk.uf2
+        " > {{.OUTPUT_DIR}}/corne_left.uf2
+
+  build:right:
+    desc: Build firmware for right half only
+    deps: [ensure-init]
+    cmds:
+      - mkdir -p {{.OUTPUT_DIR}}
+      - >-
+        docker run --rm
+        -v {{.ZMK_VOLUME}}:/workspaces/zmk
+        -v {{.CONFIG_DIR}}:/workspaces/zmk-config/config:ro
+        -w /workspaces/zmk
+        {{.ZMK_IMAGE}}
+        bash -c "
+          west build -s app -d build/corne_right -b {{.BOARD}} -p -- -DSHIELD=corne_right -DZMK_CONFIG=/workspaces/zmk-config/config &&
+          cat build/corne_right/zephyr/zmk.uf2
+        " > {{.OUTPUT_DIR}}/corne_right.uf2
+
+  update:
+    desc: Update ZMK source and Zephyr dependencies
+    cmds:
+      - >-
+        docker run --rm
+        -v {{.ZMK_VOLUME}}:/workspaces/zmk
+        -w /workspaces/zmk
+        {{.ZMK_IMAGE}}
+        bash -c "git pull && west update"
+
+  clean:
+    desc: Remove build artifacts from the Docker volume
+    cmds:
+      - >-
+        docker run --rm
+        -v {{.ZMK_VOLUME}}:/workspaces/zmk
+        -w /workspaces/zmk
+        {{.ZMK_IMAGE}}
+        rm -rf build/
+      - rm -rf {{.OUTPUT_DIR}}
+
+  nuke:
+    desc: Delete the ZMK Docker volume entirely (requires re-init)
+    prompt: This will delete the entire ZMK workspace volume. Continue?
+    cmds:
+      - docker volume rm {{.ZMK_VOLUME}}
+      - rm -rf {{.OUTPUT_DIR}}
+
+  ensure-init:
+    internal: true
+    silent: true
+    preconditions:
+      - msg: "ZMK workspace not initialized. Run 'task init' first."
+        sh: docker volume inspect {{.ZMK_VOLUME}} >/dev/null 2>&1
