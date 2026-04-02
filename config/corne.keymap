@@ -75,9 +75,9 @@
                 numpad_layer {
 // -----------------------------------------------------------------------------------------
                         bindings = <
-   &kp F1  &kp F2   &kp F3   &kp F4  &kp F5   &kp K_VOL_UP       &trans   &kp N7   &kp N8  &kp N9  &trans  &trans
-   &kp F6  &kp F7   &kp F8   &kp F9  &kp F10  &kp K_VOL_DN       &trans   &kp N4   &kp N5  &kp N6  &trans  &trans
-   &trans  &kp F11  &kp F12  &trans  &trans   &trans             &kp N0   &kp N1   &kp N2  &kp N3  &trans  &trans
+   &kp F1  &kp F2         &kp F3         &kp F4         &kp F5          &kp K_VOL_UP       &trans   &kp N7   &kp N8  &kp N9  &trans  &trans
+   &kp F6  &hml LALT F7   &hml LGUI F8   &hml LCTRL F9  &hml LSHFT F10  &kp K_VOL_DN       &trans   &kp N4   &kp N5  &kp N6  &trans  &trans
+   &trans  &kp F11        &kp F12        &trans         &trans          &trans             &kp N0   &kp N1   &kp N2  &kp N3  &trans  &trans
                              &trans  &trans   &mo 3              &trans   &trans   &trans
                         >;
                 };
